@@ -271,14 +271,13 @@
     .seal {
         position: absolute;
 
-        width: 82px;
-        height: 72px;
+        width: 76px;
+        height: 76px;
 
         left: 50%;
         top: 47%;
 
-        transform:
-            translate(-50%, -50%);
+        transform: translate(-50%, -50%);
 
         border-radius: 50%;
 
@@ -291,26 +290,36 @@
         background:
             radial-gradient(
                 circle at 35% 30%,
-                #f0dca6,
+                #f4e3b2,
                 #c9a85d 55%,
-                #a98946
+                #9d7d3d
             );
 
-        color: white;
+        color: #fff;
 
         font-family: "Cormorant Garamond", serif;
+        font-size: 24px;
+        font-weight: 600;
 
-        font-size: 27px;
+        letter-spacing: 1px;
 
-        border:
-            2px solid rgba(255,255,255,.35);
+        border: 2px solid rgba(255,255,255,.35);
 
         box-shadow:
-            0 5px 14px rgba(77,66,43,.25);
+            0 5px 14px rgba(77,66,43,.25),
+            inset 0 0 0 4px rgba(255,255,255,.10);
 
         transition:
             opacity .3s ease,
             transform .3s ease;
+    }
+
+    .seal-amp {
+        font-family: "Allura", cursive;
+        font-size: 20px;
+        font-weight: 400;
+
+        margin: 0 2px;
     }
 
 
@@ -839,7 +848,7 @@
 
 
             <div class="seal">
-                H &amp; T
+                H <span class="seal-amp">&amp;</span> T
             </div>
 
         </div>
