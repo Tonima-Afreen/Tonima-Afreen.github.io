@@ -3,23 +3,1025 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Wedding Invitation</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet">
+
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:center;background:#e9e9e9;padding:20px}.invitation{position:relative;width:min(100%,700px);aspect-ratio:2/3;background-image:url("wedding-bg.png");background-size:cover;background-position:center;background-repeat:no-repeat;overflow:hidden;box-shadow:0 15px 50px rgba(0,0,0,.18)}.invitation-content{position:absolute;top:37%;left:27%;right:8%;bottom:5%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#555b65}.save{font-family:"Allura",cursive;font-size:clamp(55px,9vw,95px);font-weight:400;line-height:.72;margin:0}.the{font-family:"Montserrat",sans-serif;font-size:clamp(13px,2vw,19px);font-weight:400;letter-spacing:7px;margin:15px 0 0}.date-script{font-family:"Allura",cursive;font-size:clamp(65px,10vw,105px);font-weight:400;line-height:.75;margin-bottom:45px}.couple{font-family:"Cormorant Garamond",serif;font-size:clamp(23px,3.8vw,36px);font-weight:500;letter-spacing:7px;text-transform:uppercase;margin-bottom:30px}.wedding-date{display:flex;justify-content:center;align-items:center;margin-bottom:30px}.day{font-family:"Montserrat",sans-serif;font-size:clamp(48px,7vw,72px);font-weight:600;line-height:1;padding-right:18px;border-right:2px solid #60646b}.date-info{padding-left:18px;text-align:left;font-family:"Montserrat",sans-serif;font-size:clamp(14px,2.2vw,21px);font-weight:400;letter-spacing:5px;line-height:1.45;text-transform:uppercase}.venue{font-family:"Montserrat",sans-serif;font-size:clamp(13px,2vw,19px);font-weight:400;letter-spacing:4px;line-height:1.7;text-transform:uppercase}.rsvp{margin-top:10px;font-family:"Montserrat",sans-serif;font-size:clamp(13px,2vw,18px);letter-spacing:5px}@media(max-width:600px){body{padding:0;background:#fff}.invitation{width:100%;min-height:100vh;box-shadow:none}.invitation-content{top:35%;left:27%;right:5%;bottom:3%}.date-script{margin-bottom:30px}.couple{letter-spacing:4px;margin-bottom:22px}.date-info,.venue{letter-spacing:3px}}
+
+    /* ==========================
+       BASIC SETTINGS
+    ========================== */
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100%;
+    }
+
+    body {
+        font-family: "Montserrat", sans-serif;
+
+        background:
+            radial-gradient(circle at top, #f7f9fc 0%, #e8eef5 45%, #d7e1ed 100%);
+
+        color: #555d68;
+    }
+
+
+    /* ==========================
+       ENVELOPE SCREEN
+    ========================== */
+
+    #envelope-screen {
+        position: fixed;
+        inset: 0;
+
+        z-index: 100;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 25px;
+
+        background:
+            radial-gradient(
+                circle at top,
+                #fafcff 0%,
+                #edf3f8 45%,
+                #d8e3ed 100%
+            );
+
+        transition:
+            opacity 0.8s ease,
+            visibility 0.8s ease;
+    }
+
+
+    #envelope-screen.hide {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+
+    .envelope-title {
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: clamp(20px, 3vw, 28px);
+
+        letter-spacing: 4px;
+
+        text-align: center;
+
+        color: #667487;
+
+        margin-bottom: 35px;
+    }
+
+
+    /* ==========================
+       ENVELOPE
+    ========================== */
+
+    .envelope-wrapper {
+        width: min(500px, 88vw);
+
+        aspect-ratio: 1.55 / 1;
+
+        position: relative;
+
+        cursor: pointer;
+
+        filter:
+            drop-shadow(0 20px 25px rgba(62, 79, 100, 0.20));
+
+        transition: transform 0.35s ease;
+    }
+
+
+    .envelope-wrapper:hover {
+        transform: translateY(-5px);
+    }
+
+
+    .envelope {
+        position: absolute;
+        inset: 0;
+
+        perspective: 1200px;
+    }
+
+
+    /* Envelope back */
+
+    .envelope-back {
+        position: absolute;
+        inset: 0;
+
+        border-radius: 5px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #d9e5f0,
+                #aec4d9
+            );
+    }
+
+
+    /* Invitation paper visible inside */
+
+    .letter-preview {
+        position: absolute;
+
+        width: 86%;
+        height: 82%;
+
+        left: 7%;
+        top: 8%;
+
+        background: #fff;
+
+        border-radius: 4px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-family: "Allura", cursive;
+
+        font-size: clamp(35px, 7vw, 60px);
+
+        color: #647487;
+
+        box-shadow:
+            0 4px 15px rgba(0,0,0,.12);
+
+        transition:
+            transform 0.8s ease 0.35s;
+    }
+
+
+    /* Envelope side folds */
+
+    .envelope-left {
+        position: absolute;
+        inset: 0;
+
+        clip-path:
+            polygon(
+                0 0,
+                52% 50%,
+                0 100%
+            );
+
+        background: #c6d7e5;
+    }
+
+
+    .envelope-right {
+        position: absolute;
+        inset: 0;
+
+        clip-path:
+            polygon(
+                100% 0,
+                48% 50%,
+                100% 100%
+            );
+
+        background: #b7cddd;
+    }
+
+
+    /* Bottom fold */
+
+    .envelope-bottom {
+        position: absolute;
+        inset: 0;
+
+        clip-path:
+            polygon(
+                0 100%,
+                50% 45%,
+                100% 100%
+            );
+
+        background:
+            linear-gradient(
+                to top,
+                #d6e2ec,
+                #bfd1df
+            );
+    }
+
+
+    /* Top flap */
+
+    .envelope-flap {
+        position: absolute;
+
+        width: 100%;
+        height: 56%;
+
+        top: 0;
+        left: 0;
+
+        background:
+            linear-gradient(
+                145deg,
+                #dfe9f2,
+                #b5cadd
+            );
+
+        clip-path:
+            polygon(
+                0 0,
+                100% 0,
+                50% 100%
+            );
+
+        transform-origin: top;
+
+        transition:
+            transform 0.8s ease;
+
+        z-index: 10;
+    }
+
+
+    /* ==========================
+       WAX SEAL
+    ========================== */
+
+    .seal {
+        position: absolute;
+
+        width: 82px;
+        height: 72px;
+
+        left: 50%;
+        top: 47%;
+
+        transform:
+            translate(-50%, -50%);
+
+        border-radius: 50%;
+
+        z-index: 20;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background:
+            radial-gradient(
+                circle at 35% 30%,
+                #f0dca6,
+                #c9a85d 55%,
+                #a98946
+            );
+
+        color: white;
+
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 27px;
+
+        border:
+            2px solid rgba(255,255,255,.35);
+
+        box-shadow:
+            0 5px 14px rgba(77,66,43,.25);
+
+        transition:
+            opacity .3s ease,
+            transform .3s ease;
+    }
+
+
+    /* Open animation */
+
+    .envelope-wrapper.open .envelope-flap {
+        transform:
+            rotateX(180deg);
+
+        z-index: 0;
+    }
+
+
+    .envelope-wrapper.open .seal {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.6);
+    }
+
+
+    .envelope-wrapper.open .letter-preview {
+        transform:
+            translateY(-42%);
+    }
+
+
+    .click-text {
+        margin-top: 35px;
+
+        font-size: 12px;
+
+        text-transform: uppercase;
+
+        letter-spacing: 4px;
+
+        color: #788797;
+
+        animation:
+            pulse 2s infinite;
+    }
+
+
+    @keyframes pulse {
+
+        0%, 100% {
+            opacity: .5;
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+
+
+    /* ==========================
+       INVITATION SCREEN
+    ========================== */
+
+    #invitation-screen {
+        min-height: 100vh;
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 35px 20px;
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+    }
+
+
+    #invitation-screen.show {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+
+
+    /* ==========================
+       INVITATION CARD
+    ========================== */
+
+    .invitation {
+
+        position: relative;
+
+        /*
+           Background generated earlier
+           is approximately 2:3.
+        */
+
+        width:
+            min(
+                680px,
+                calc((100vh - 70px) * 2 / 3),
+                calc(100vw - 30px)
+            );
+
+        aspect-ratio: 2 / 3;
+
+        background-image:
+            url("wedding-bg.png");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 18px 60px
+            rgba(61, 77, 95, .22);
+    }
+
+
+
+    /* ==========================
+       INVITATION TEXT
+    ========================== */
+
+    .invitation-content {
+
+        position: absolute;
+
+        /*
+          Position content in the
+          clear center of the artwork.
+        */
+
+        top: 35%;
+        left: 25%;
+        right: 7%;
+        bottom: 5%;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        color: #565e68;
+    }
+
+
+
+    /* Save */
+
+    .save {
+        font-family:
+            "Allura",
+            cursive;
+
+        font-size:
+            clamp(
+                44px,
+                7vw,
+                78px
+            );
+
+        font-weight: 400;
+
+        line-height: .7;
+
+        margin: 0;
+    }
+
+
+    .the {
+        font-size:
+            clamp(
+                9px,
+                1.3vw,
+                15px
+            );
+
+        letter-spacing: 6px;
+
+        margin-top: 13px;
+    }
+
+
+    .date-script {
+        font-family:
+            "Allura",
+            cursive;
+
+        font-size:
+            clamp(
+                50px,
+                8vw,
+                88px
+            );
+
+        line-height: .8;
+
+        margin-bottom: 30px;
+    }
+
+
+
+    /* Names */
+
+    .couple {
+        font-family:
+            "Cormorant Garamond",
+            serif;
+
+        font-size:
+            clamp(
+                17px,
+                2.6vw,
+                28px
+            );
+
+        font-weight: 500;
+
+        letter-spacing: 6px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 25px;
+    }
+
+
+
+    /* Date */
+
+    .wedding-date {
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        margin-bottom: 23px;
+    }
+
+
+    .day {
+
+        font-size:
+            clamp(
+                37px,
+                5vw,
+                58px
+            );
+
+        font-weight: 600;
+
+        line-height: 1;
+
+        padding-right: 15px;
+
+        border-right:
+            1.5px solid #626872;
+    }
+
+
+    .date-info {
+
+        padding-left: 15px;
+
+        text-align: left;
+
+        font-size:
+            clamp(
+                10px,
+                1.5vw,
+                16px
+            );
+
+        letter-spacing: 4px;
+
+        line-height: 1.55;
+
+        text-transform: uppercase;
+    }
+
+
+
+    /* Venue */
+
+    .venue {
+
+        font-size:
+            clamp(
+                9px,
+                1.4vw,
+                15px
+            );
+
+        letter-spacing: 4px;
+
+        line-height: 1.7;
+
+        text-transform: uppercase;
+    }
+
+
+    .rsvp {
+
+        margin-top: 7px;
+
+        font-size:
+            clamp(
+                9px,
+                1.3vw,
+                14px
+            );
+
+        letter-spacing: 4px;
+    }
+
+
+
+    /* ==========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 600px) {
+
+        #invitation-screen {
+            padding: 12px;
+        }
+
+
+        .invitation {
+
+            width:
+                min(
+                    calc(100vw - 20px),
+                    calc((100vh - 24px) * 2 / 3)
+                );
+
+        }
+
+
+        .invitation-content {
+
+            top: 34%;
+
+            left: 25%;
+
+            right: 5%;
+
+            bottom: 4%;
+        }
+
+
+        .save {
+            font-size:
+                clamp(
+                    38px,
+                    12vw,
+                    60px
+                );
+        }
+
+
+        .date-script {
+            font-size:
+                clamp(
+                    43px,
+                    14vw,
+                    70px
+                );
+
+            margin-bottom: 20px;
+        }
+
+
+        .couple {
+
+            font-size:
+                clamp(
+                    14px,
+                    4vw,
+                    20px
+                );
+
+            letter-spacing: 3px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .day {
+
+            font-size:
+                clamp(
+                    31px,
+                    9vw,
+                    45px
+                );
+
+            padding-right: 10px;
+        }
+
+
+        .date-info {
+
+            font-size:
+                clamp(
+                    8px,
+                    2.5vw,
+                    12px
+                );
+
+            padding-left: 10px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .venue {
+
+            font-size:
+                clamp(
+                    8px,
+                    2.3vw,
+                    11px
+                );
+
+            letter-spacing: 2px;
+        }
+
+
+        .the,
+        .rsvp {
+
+            letter-spacing: 3px;
+        }
+
+
+        .seal {
+
+            width: 58px;
+            height: 58px;
+
+            font-size: 22px;
+        }
+
+
+        .envelope-title {
+
+            font-size: 18px;
+
+            letter-spacing: 3px;
+        }
+
+    }
+
+
+
+    /* Very short screens */
+
+    @media (max-height: 650px) {
+
+        #invitation-screen {
+            align-items: flex-start;
+        }
+
+    }
+
 </style>
 </head>
+
+
 <body>
-<main class="invitation">
-<section class="invitation-content">
-<h1 class="save">Save</h1><div class="the">THE</div><div class="date-script">Date</div>
-<div class="couple">HASAN &amp; TONIMA</div>
-<div class="wedding-date"><div class="day">16</div><div class="date-info"><div>FRIDAY</div><div>OCTOBER, 2026</div><div></div></div></div>
-<div class="venue"><div>WEDDING VENUE</div><div>NARAIL, BANGLADESH</div></div> 
-<div class="rsvp">YOUR PRESENCE WILL MAKE OUR SPECIAL DAY EVEN MORE BEAUTIFUL.</div> 
+
+
+<!-- =================================
+     ENVELOPE
+================================= -->
+
+<section id="envelope-screen">
+
+    <div class="envelope-title">
+        YOU'RE INVITED
+    </div>
+
+
+    <div
+        class="envelope-wrapper"
+        id="envelope"
+        onclick="openInvitation()"
+        role="button"
+        tabindex="0"
+        aria-label="Open wedding invitation"
+    >
+
+        <div class="envelope">
+
+            <div class="envelope-back"></div>
+
+
+            <div class="letter-preview">
+                H &amp; T
+            </div>
+
+
+            <div class="envelope-left"></div>
+
+            <div class="envelope-right"></div>
+
+            <div class="envelope-bottom"></div>
+
+            <div class="envelope-flap"></div>
+
+
+            <div class="seal">
+                H &amp; T
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="click-text">
+        Click to open
+    </div>
+
 </section>
-</main>
+
+
+
+<!-- =================================
+     WEDDING INVITATION
+================================= -->
+
+<section id="invitation-screen">
+
+
+    <main class="invitation">
+
+
+        <div class="invitation-content">
+
+
+            <!-- SAVE THE DATE -->
+
+            <h1 class="save">
+                Save
+            </h1>
+
+
+            <div class="the">
+                THE
+            </div>
+
+
+            <div class="date-script">
+                Date
+            </div>
+
+
+
+            <!-- COUPLE -->
+
+            <div class="couple">
+
+                HASAN &amp; TONIMA
+
+            </div>
+
+
+
+            <!-- DATE -->
+
+            <div class="wedding-date">
+
+
+                <div class="day">
+                    16
+                </div>
+
+
+                <div class="date-info">
+
+                    <div>
+                        FRIDAY
+                    </div>
+
+                    <div>
+                        OCTOBER, 2026
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- VENUE -->
+
+            <div class="venue">
+
+                <div>
+                    WEDDING VENUE
+                </div>
+
+                <div>
+                    NARAIL, BANGLADESH
+                </div>
+
+            </div>
+
+
+
+            <!-- RSVP -->
+
+            <div class="rsvp">
+
+                YOUR PRESENCE WILL MAKE OUR SPECIAL DAY EVEN MORE BEAUTIFUL.
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+</section>
+
+
+
+<script>
+
+    function openInvitation() {
+
+        const envelope =
+            document.getElementById("envelope");
+
+        const envelopeScreen =
+            document.getElementById("envelope-screen");
+
+        const invitationScreen =
+            document.getElementById("invitation-screen");
+
+
+        /*
+         * First open the envelope.
+         */
+
+        envelope.classList.add("open");
+
+
+        /*
+         * Wait for the envelope animation,
+         * then reveal the invitation.
+         */
+
+        setTimeout(() => {
+
+            envelopeScreen.classList.add("hide");
+
+            invitationScreen.classList.add("show");
+
+        }, 1100);
+
+    }
+
+
+    /*
+     * Allow keyboard users to open
+     * the invitation with Enter/Space.
+     */
+
+    document
+        .getElementById("envelope")
+        .addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
+
+                    event.preventDefault();
+
+                    openInvitation();
+
+                }
+
+            }
+        );
+
+</script>
+
+
 </body>
 </html>
