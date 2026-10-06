@@ -1,873 +1,1277 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Page -->
-<!-- Primary -->
-<title>H & T | Wedding Invitation</title>
+    <meta charset="UTF-8">
 
-<meta name="description"
-      content="Together with our families, we invite you to celebrate our special day.">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
 
-<meta property="og:site_name"
-      content="H & T Wedding">
+    <!-- ==========================================
+         PAGE INFORMATION
+    =========================================== -->
 
-<meta property="og:url"
-      content="https://tonima-afreen.github.io/">
+    <title>H & T | Wedding Invitation</title>
 
-<meta property="og:title"
-      content="H & T | Wedding Invitation">
+    <meta name="description"
+          content="Together with our families, we invite you to celebrate our special day.">
 
-<meta property="og:description"
-      content="Together with our families, we invite you to celebrate our special day.">
 
-<meta property="og:image"
-      content="https://tonima-afreen.github.io/share-card-v2.jpg">
+    <!-- ==========================================
+         SOCIAL MEDIA / OPEN GRAPH
+    =========================================== -->
 
-<meta property="og:image:secure_url"
-      content="https://tonima-afreen.github.io/share-card-v2.jpg">
+    <meta property="og:type"
+          content="website">
 
-<meta property="og:image:type"
-      content="image/jpeg">
+    <meta property="og:site_name"
+          content="H & T Wedding">
 
-<meta property="og:image:width"
-      content="1200">
+    <meta property="og:url"
+          content="https://tonima-afreen.github.io/">
 
-<meta property="og:image:height"
-      content="630">
+    <meta property="og:title"
+          content="H & T | Wedding Invitation">
 
-<meta property="og:image:alt"
-      content="H & T Wedding Invitation">
+    <meta property="og:description"
+          content="Together with our families, we invite you to celebrate our special day.">
 
-<!-- Twitter / X -->
-<meta name="twitter:card"
-      content="summary_large_image">
+    <meta property="og:image"
+          content="https://tonima-afreen.github.io/share-card-v2.jpg">
 
-<meta name="twitter:title"
-      content="H & T | Wedding Invitation">
+    <meta property="og:image:secure_url"
+          content="https://tonima-afreen.github.io/share-card-v2.jpg">
 
-<meta name="twitter:description"
-      content="Together with our families, we invite you to celebrate our special day.">
+    <meta property="og:image:type"
+          content="image/jpeg">
 
-<meta name="twitter:image"
-      content="https://tonima-afreen.github.io/share-card.jpg">
+    <meta property="og:image:width"
+          content="1200">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta property="og:image:height"
+          content="630">
 
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
-      rel="stylesheet">
+    <meta property="og:image:alt"
+          content="H & T Wedding Invitation">
+
+
+    <!-- Twitter / X -->
+
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="H & T | Wedding Invitation">
+
+    <meta name="twitter:description"
+          content="Together with our families, we invite you to celebrate our special day.">
+
+    <meta name="twitter:image"
+          content="https://tonima-afreen.github.io/share-card-v2.jpg">
+
+
+    <!-- ==========================================
+         FONTS
+    =========================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500&display=swap"
+          rel="stylesheet">
+
 
 <style>
 
-    /* ==========================
-       BASIC SETTINGS
-    ========================== */
 
-    * {
-        box-sizing: border-box;
+/* ==========================================
+   BASIC SETTINGS
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+
+    font-family: "Montserrat", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #f7f9fc 0%,
+            #e8eef5 45%,
+            #d7e1ed 100%
+        );
+
+    color: #555d68;
+}
+
+
+
+/* ==========================================
+   ENVELOPE SCREEN
+========================================== */
+
+#envelope-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #fafcff 0%,
+            #edf3f8 45%,
+            #d8e3ed 100%
+        );
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+
+#envelope-screen.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+.envelope-title {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(20px, 3vw, 28px);
+
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    text-align: center;
+
+    color: #667487;
+
+    margin-bottom: 35px;
+}
+
+
+
+/* ==========================================
+   ENVELOPE
+========================================== */
+
+.envelope-wrapper {
+
+    width:
+        min(500px, 88vw);
+
+    aspect-ratio:
+        1.55 / 1;
+
+    position: relative;
+
+    cursor: pointer;
+
+    filter:
+        drop-shadow(
+            0 20px 25px
+            rgba(62, 79, 100, .20)
+        );
+
+    transition:
+        transform .35s ease;
+}
+
+
+.envelope-wrapper:hover {
+
+    transform:
+        translateY(-5px);
+}
+
+
+.envelope {
+
+    position: absolute;
+
+    inset: 0;
+
+    perspective: 1200px;
+}
+
+
+
+/* Envelope back */
+
+.envelope-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9e5f0,
+            #aec4d9
+        );
+}
+
+
+
+/* Invitation paper */
+
+.letter-preview {
+
+    position: absolute;
+
+    width: 86%;
+    height: 82%;
+
+    left: 7%;
+    top: 8%;
+
+    background: #ffffff;
+
+    border-radius: 4px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-family:
+        "Allura",
+        cursive;
+
+    font-size:
+        clamp(35px, 7vw, 60px);
+
+    color: #647487;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.12);
+
+    transition:
+        transform .8s ease .35s;
+}
+
+
+
+/* Left envelope fold */
+
+.envelope-left {
+
+    position: absolute;
+
+    inset: 0;
+
+    clip-path:
+        polygon(
+            0 0,
+            52% 50%,
+            0 100%
+        );
+
+    background:
+        #c6d7e5;
+}
+
+
+
+/* Right envelope fold */
+
+.envelope-right {
+
+    position: absolute;
+
+    inset: 0;
+
+    clip-path:
+        polygon(
+            100% 0,
+            48% 50%,
+            100% 100%
+        );
+
+    background:
+        #b7cddd;
+}
+
+
+
+/* Bottom envelope fold */
+
+.envelope-bottom {
+
+    position: absolute;
+
+    inset: 0;
+
+    clip-path:
+        polygon(
+            0 100%,
+            50% 45%,
+            100% 100%
+        );
+
+    background:
+        linear-gradient(
+            to top,
+            #d6e2ec,
+            #bfd1df
+        );
+}
+
+
+
+/* Top flap */
+
+.envelope-flap {
+
+    position: absolute;
+
+    width: 100%;
+    height: 56%;
+
+    top: 0;
+    left: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dfe9f2,
+            #b5cadd
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin:
+        top;
+
+    transition:
+        transform .8s ease;
+
+    z-index: 10;
+}
+
+
+
+/* ==========================================
+   WAX SEAL
+========================================== */
+
+.seal {
+
+    position: absolute;
+
+    width: 76px;
+    height: 76px;
+
+    left: 50%;
+    top: 47%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    z-index: 20;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #f4e3b2,
+            #c9a85d 55%,
+            #9d7d3d
+        );
+
+    color: #ffffff;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    border:
+        2px solid
+        rgba(255,255,255,.35);
+
+    box-shadow:
+        0 5px 14px
+        rgba(77,66,43,.25),
+
+        inset 0 0 0 4px
+        rgba(255,255,255,.10);
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+}
+
+
+.seal-amp {
+
+    font-family:
+        "Allura",
+        cursive;
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    margin:
+        0 2px;
+}
+
+
+
+/* ==========================================
+   ENVELOPE OPEN ANIMATION
+========================================== */
+
+.envelope-wrapper.open
+.envelope-flap {
+
+    transform:
+        rotateX(180deg);
+
+    z-index: 0;
+}
+
+
+.envelope-wrapper.open
+.seal {
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.6);
+}
+
+
+.envelope-wrapper.open
+.letter-preview {
+
+    transform:
+        translateY(-42%);
+}
+
+
+.click-text {
+
+    margin-top: 35px;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    color: #788797;
+
+    animation:
+        pulse 2s infinite;
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+
+        opacity: .5;
     }
 
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        min-height: 100%;
+    50% {
+
+        opacity: 1;
     }
+}
 
-    body {
-        font-family: "Montserrat", sans-serif;
 
-        background:
-            radial-gradient(circle at top, #f7f9fc 0%, #e8eef5 45%, #d7e1ed 100%);
 
-        color: #555d68;
-    }
+/* ==========================================
+   INVITATION SCREEN
+========================================== */
 
+#invitation-screen {
 
-    /* ==========================
-       ENVELOPE SCREEN
-    ========================== */
+    min-height: 100vh;
 
-    #envelope-screen {
-        position: fixed;
-        inset: 0;
+    width: 100%;
 
-        z-index: 100;
+    display: flex;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    justify-content: center;
+    align-items: center;
 
-        padding: 25px;
+    padding:
+        35px 20px;
 
-        background:
-            radial-gradient(
-                circle at top,
-                #fafcff 0%,
-                #edf3f8 45%,
-                #d8e3ed 100%
-            );
+    opacity: 0;
 
-        transition:
-            opacity 0.8s ease,
-            visibility 0.8s ease;
-    }
+    transform:
+        translateY(25px);
 
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
 
-    #envelope-screen.hide {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
 
+#invitation-screen.show {
 
-    .envelope-title {
-        font-family: "Cormorant Garamond", serif;
+    opacity: 1;
 
-        font-size: clamp(20px, 3vw, 28px);
+    transform:
+        translateY(0);
+}
 
-        letter-spacing: 4px;
 
-        text-align: center;
 
-        color: #667487;
+/* ==========================================
+   INVITATION CARD
+========================================== */
 
-        margin-bottom: 35px;
-    }
+.invitation {
 
+    position: relative;
 
-    /* ==========================
-       ENVELOPE
-    ========================== */
+    width:
+        min(
+            680px,
+            calc((100vh - 70px) * 2 / 3),
+            calc(100vw - 30px)
+        );
 
-    .envelope-wrapper {
-        width: min(500px, 88vw);
+    aspect-ratio:
+        2 / 3;
 
-        aspect-ratio: 1.55 / 1;
+    background-image:
+        url("wedding-bg.png");
 
-        position: relative;
+    background-size:
+        cover;
 
-        cursor: pointer;
+    background-position:
+        center;
 
-        filter:
-            drop-shadow(0 20px 25px rgba(62, 79, 100, 0.20));
+    background-repeat:
+        no-repeat;
 
-        transition: transform 0.35s ease;
-    }
+    overflow:
+        hidden;
 
+    box-shadow:
+        0 18px 60px
+        rgba(61,77,95,.22);
+}
 
-    .envelope-wrapper:hover {
-        transform: translateY(-5px);
-    }
 
 
-    .envelope {
-        position: absolute;
-        inset: 0;
+/* ==========================================
+   INVITATION CONTENT AREA
+========================================== */
 
-        perspective: 1200px;
-    }
+.invitation-content {
 
+    position: absolute;
 
-    /* Envelope back */
+    top: 35%;
 
-    .envelope-back {
-        position: absolute;
-        inset: 0;
+    left: 25%;
+    right: 7%;
 
-        border-radius: 5px;
+    bottom: 7%;
 
-        background:
-            linear-gradient(
-                135deg,
-                #d9e5f0,
-                #aec4d9
-            );
-    }
+    display: flex;
 
+    flex-direction: column;
 
-    /* Invitation paper visible inside */
+    justify-content: center;
+    align-items: center;
 
-    .letter-preview {
-        position: absolute;
+    text-align: center;
 
-        width: 86%;
-        height: 82%;
+    color: #565e68;
+}
 
-        left: 7%;
-        top: 8%;
 
-        background: #fff;
 
-        border-radius: 4px;
+/* ==========================================
+   SAVE THE DATE
+========================================== */
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+.save {
 
-        font-family: "Allura", cursive;
+    margin: 0;
 
-        font-size: clamp(35px, 7vw, 60px);
+    font-family:
+        "Allura",
+        cursive;
 
-        color: #647487;
+    font-size:
+        clamp(46px, 7vw, 80px);
 
-        box-shadow:
-            0 4px 15px rgba(0,0,0,.12);
+    font-weight: 400;
 
-        transition:
-            transform 0.8s ease 0.35s;
-    }
+    line-height: .72;
 
+    color:
+        #596779;
+}
 
-    /* Envelope side folds */
 
-    .envelope-left {
-        position: absolute;
-        inset: 0;
+.the {
 
-        clip-path:
-            polygon(
-                0 0,
-                52% 50%,
-                0 100%
-            );
+    margin-top: 14px;
 
-        background: #c6d7e5;
-    }
+    font-family:
+        "Cinzel",
+        serif;
 
+    font-size:
+        clamp(8px, 1.2vw, 13px);
 
-    .envelope-right {
-        position: absolute;
-        inset: 0;
+    font-weight: 500;
 
-        clip-path:
-            polygon(
-                100% 0,
-                48% 50%,
-                100% 100%
-            );
+    letter-spacing: 7px;
 
-        background: #b7cddd;
-    }
+    color:
+        #9c804b;
+}
 
 
-    /* Bottom fold */
+.date-script {
 
-    .envelope-bottom {
-        position: absolute;
-        inset: 0;
+    font-family:
+        "Allura",
+        cursive;
 
-        clip-path:
-            polygon(
-                0 100%,
-                50% 45%,
-                100% 100%
-            );
+    font-size:
+        clamp(52px, 8vw, 90px);
 
-        background:
-            linear-gradient(
-                to top,
-                #d6e2ec,
-                #bfd1df
-            );
-    }
+    line-height: .82;
 
+    margin-bottom: 27px;
 
-    /* Top flap */
+    color:
+        #596779;
+}
 
-    .envelope-flap {
-        position: absolute;
 
-        width: 100%;
-        height: 56%;
 
-        top: 0;
-        left: 0;
+/* ==========================================
+   COUPLE NAMES
+========================================== */
 
-        background:
-            linear-gradient(
-                145deg,
-                #dfe9f2,
-                #b5cadd
-            );
+.couple {
 
-        clip-path:
-            polygon(
-                0 0,
-                100% 0,
-                50% 100%
-            );
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
-        transform-origin: top;
+    font-size:
+        clamp(19px, 2.7vw, 30px);
 
-        transition:
-            transform 0.8s ease;
+    font-weight: 600;
 
-        z-index: 10;
-    }
+    letter-spacing: 4px;
 
+    text-transform: uppercase;
 
-    /* ==========================
-       WAX SEAL
-    ========================== */
+    color:
+        #505c6b;
 
-    .seal {
-        position: absolute;
+    margin-bottom: 24px;
 
-        width: 76px;
-        height: 76px;
+    white-space: nowrap;
+}
 
-        left: 50%;
-        top: 47%;
 
-        transform: translate(-50%, -50%);
 
-        border-radius: 50%;
+/* ==========================================
+   WEDDING DATE
+========================================== */
 
-        z-index: 20;
+.wedding-date {
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    display: flex;
 
-        background:
-            radial-gradient(
-                circle at 35% 30%,
-                #f4e3b2,
-                #c9a85d 55%,
-                #9d7d3d
-            );
+    justify-content: center;
+    align-items: center;
 
-        color: #fff;
+    margin-bottom: 21px;
+}
 
-        font-family: "Cormorant Garamond", serif;
-        font-size: 24px;
-        font-weight: 600;
 
-        letter-spacing: 1px;
+.day {
 
-        border: 2px solid rgba(255,255,255,.35);
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
-        box-shadow:
-            0 5px 14px rgba(77,66,43,.25),
-            inset 0 0 0 4px rgba(255,255,255,.10);
+    font-size:
+        clamp(40px, 5vw, 60px);
 
-        transition:
-            opacity .3s ease,
-            transform .3s ease;
-    }
+    font-weight: 500;
 
-    .seal-amp {
-        font-family: "Allura", cursive;
-        font-size: 20px;
-        font-weight: 400;
+    line-height: 1;
 
-        margin: 0 2px;
-    }
+    color:
+        #566476;
 
+    padding-right: 15px;
 
-    /* Open animation */
+    border-right:
+        1px solid
+        #c6a55d;
+}
 
-    .envelope-wrapper.open .envelope-flap {
-        transform:
-            rotateX(180deg);
 
-        z-index: 0;
-    }
+.date-info {
 
+    padding-left: 15px;
 
-    .envelope-wrapper.open .seal {
-        opacity: 0;
+    text-align: left;
 
-        transform:
-            translate(-50%, -50%)
-            scale(.6);
-    }
+    font-family:
+        "Cinzel",
+        serif;
 
+    font-size:
+        clamp(9px, 1.35vw, 14px);
 
-    .envelope-wrapper.open .letter-preview {
-        transform:
-            translateY(-42%);
-    }
+    font-weight: 500;
 
+    letter-spacing: 2.5px;
 
-    .click-text {
-        margin-top: 35px;
+    line-height: 1.65;
 
-        font-size: 12px;
+    text-transform:
+        uppercase;
 
-        text-transform: uppercase;
+    color:
+        #596574;
+}
 
-        letter-spacing: 4px;
 
-        color: #788797;
 
-        animation:
-            pulse 2s infinite;
-    }
+/* ==========================================
+   VENUE
+========================================== */
 
+.venue {
 
-    @keyframes pulse {
+    margin-top: 2px;
 
-        0%, 100% {
-            opacity: .5;
-        }
+    text-align: center;
 
-        50% {
-            opacity: 1;
-        }
-    }
+    color:
+        #566476;
+}
 
 
 
-    /* ==========================
-       INVITATION SCREEN
-    ========================== */
+/* WEDDING VENUE */
+
+.venue-name {
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:
+        clamp(10px, 1.5vw, 16px);
+
+    font-style:
+        normal;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        2.5px;
+
+    text-transform:
+        uppercase;
+
+    color:
+        #566476;
+
+    margin-bottom:
+        5px;
+}
+
+
+
+/* Narail, Bangladesh */
+
+.venue-location {
+
+    margin-top: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(13px, 2vw, 20px);
+
+    
+
+    font-weight:
+        1000;
+
+    line-height:
+        1.15;
+
+    letter-spacing:
+        1.5px;
+
+    text-transform:
+        uppercase;
+
+    color:
+        #566476;
+
+    white-space:
+        nowrap;
+}
+
+
+
+/* ==========================================
+   FINAL MESSAGE
+========================================== */
+
+.rsvp {
+
+    margin-top:
+        13px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(8px, 1vw, 12px);
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        1.1px;
+
+    text-transform:
+        none;
+
+    color:
+        #667180;
+
+    white-space:
+        nowrap;
+
+    line-height:
+        1.2;
+}
+
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
 
     #invitation-screen {
-        min-height: 100vh;
 
-        width: 100%;
-
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
-
-        padding: 35px 20px;
-
-        opacity: 0;
-
-        transform:
-            translateY(25px);
-
-        transition:
-            opacity 1s ease,
-            transform 1s ease;
+        padding:
+            12px;
     }
 
-
-    #invitation-screen.show {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-
-
-    /* ==========================
-       INVITATION CARD
-    ========================== */
 
     .invitation {
 
-        position: relative;
-
-        /*
-           Background generated earlier
-           is approximately 2:3.
-        */
-
         width:
             min(
-                680px,
-                calc((100vh - 70px) * 2 / 3),
-                calc(100vw - 30px)
+                calc(100vw - 20px),
+                calc((100vh - 24px) * 2 / 3)
             );
-
-        aspect-ratio: 2 / 3;
-
-        background-image:
-            url("wedding-bg.png");
-
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        overflow: hidden;
-
-        box-shadow:
-            0 18px 60px
-            rgba(61, 77, 95, .22);
     }
 
-
-
-    /* ==========================
-       INVITATION TEXT
-    ========================== */
 
     .invitation-content {
 
-        position: absolute;
+        top: 34%;
 
-        /*
-          Position content in the
-          clear center of the artwork.
-        */
-
-        top: 35%;
         left: 25%;
-        right: 7%;
-        bottom: 5%;
 
-        display: flex;
-        flex-direction: column;
+        right: 5%;
 
-        justify-content: center;
-        align-items: center;
-
-        text-align: center;
-
-        color: #565e68;
+        bottom: 6%;
     }
 
 
 
-    /* Save */
+    /* SAVE */
 
     .save {
-        font-family:
-            "Allura",
-            cursive;
 
         font-size:
             clamp(
-                44px,
-                7vw,
-                78px
+                38px,
+                12vw,
+                60px
             );
-
-        font-weight: 400;
-
-        line-height: .7;
-
-        margin: 0;
     }
 
+
+
+    /* THE */
 
     .the {
+
         font-size:
             clamp(
-                9px,
-                1.3vw,
-                15px
+                7px,
+                2vw,
+                10px
             );
 
-        letter-spacing: 6px;
+        letter-spacing:
+            3px;
 
-        margin-top: 13px;
+        margin-top:
+            9px;
     }
 
+
+
+    /* DATE SCRIPT */
 
     .date-script {
-        font-family:
-            "Allura",
-            cursive;
 
         font-size:
             clamp(
-                50px,
-                8vw,
-                88px
+                43px,
+                14vw,
+                70px
             );
 
-        line-height: .8;
-
-        margin-bottom: 30px;
+        margin-bottom:
+            18px;
     }
 
 
 
-    /* Names */
+    /* NAMES */
 
     .couple {
-        font-family:
-            "Cormorant Garamond",
-            serif;
 
         font-size:
             clamp(
-                17px,
-                2.6vw,
-                28px
+                14px,
+                4vw,
+                20px
             );
 
-        font-weight: 500;
+        letter-spacing:
+            2px;
 
-        letter-spacing: 6px;
-
-        text-transform: uppercase;
-
-        margin-bottom: 25px;
+        margin-bottom:
+            17px;
     }
 
 
 
-    /* Date */
-
-    .wedding-date {
-
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
-
-        margin-bottom: 23px;
-    }
-
+    /* DAY */
 
     .day {
 
         font-size:
             clamp(
-                37px,
-                5vw,
-                58px
+                31px,
+                9vw,
+                45px
             );
 
-        font-weight: 600;
-
-        line-height: 1;
-
-        padding-right: 15px;
-
-        border-right:
-            1.5px solid #626872;
+        padding-right:
+            10px;
     }
 
+
+
+    /* DATE DETAILS */
 
     .date-info {
 
-        padding-left: 15px;
-
-        text-align: left;
-
         font-size:
             clamp(
-                10px,
-                1.5vw,
-                16px
+                8px,
+                2.5vw,
+                12px
             );
 
-        letter-spacing: 4px;
+        padding-left:
+            10px;
 
-        line-height: 1.55;
-
-        text-transform: uppercase;
+        letter-spacing:
+            1.5px;
     }
 
 
 
-    /* Venue */
+    .wedding-date {
 
-    .venue {
+        margin-bottom:
+            16px;
+    }
+
+
+
+    /* VENUE TITLE */
+
+    .venue-name {
 
         font-size:
             clamp(
-                9px,
-                1.4vw,
-                15px
+                8px,
+                2.5vw,
+                12px
             );
 
-        letter-spacing: 4px;
+        letter-spacing:
+            1.2px;
 
-        line-height: 1.7;
+        margin-bottom:
+            2px;
+    }
 
-        text-transform: uppercase;
+
+
+    /* LOCATION */
+
+    .venue-location {
+
+        font-size:
+            clamp(
+                11px,
+                3.4vw,
+                16px
+            );
+
+        letter-spacing:
+            .5px;
+
+        font-style:
+            italic;
+    }
+
+
+
+    /* FINAL MESSAGE */
+
+    .rsvp {
+
+        margin-top:
+            8px;
+
+        font-size:
+            clamp(
+                4px,
+                1.15vw,
+                6px
+            );
+
+        letter-spacing:
+            .45px;
+
+        white-space:
+            nowrap;
+            
+    }
+
+
+
+    /* SEAL */
+
+    .seal {
+
+        width:
+            58px;
+
+        height:
+            58px;
+
+        font-size:
+            20px;
+    }
+
+
+    .seal-amp {
+
+        font-size:
+            17px;
+    }
+
+
+
+    /* ENVELOPE TITLE */
+
+    .envelope-title {
+
+        font-size:
+            18px;
+
+        letter-spacing:
+            3px;
+    }
+
+}
+
+
+
+/* ==========================================
+   VERY SMALL MOBILE DEVICES
+========================================== */
+
+@media (max-width: 400px) {
+
+
+    .couple {
+
+        letter-spacing:
+            1.5px;
+    }
+
+
+    .venue-name {
+
+        font-size:
+            8px;
+    }
+
+
+    .venue-location {
+
+        font-size:
+            11px;
+
+        letter-spacing:
+            .3px;
     }
 
 
     .rsvp {
 
-        margin-top: 7px;
-
         font-size:
-            clamp(
-                9px,
-                1.3vw,
-                14px
-            );
+            4px;
 
-        letter-spacing: 4px;
+        letter-spacing:
+            .25px;
     }
 
+}
 
 
-    /* ==========================
-       MOBILE
-    ========================== */
 
-    @media (max-width: 600px) {
+/* ==========================================
+   SHORT SCREENS
+========================================== */
 
-        #invitation-screen {
-            padding: 12px;
-        }
+@media (max-height: 650px) {
 
+    #invitation-screen {
 
-        .invitation {
-
-            width:
-                min(
-                    calc(100vw - 20px),
-                    calc((100vh - 24px) * 2 / 3)
-                );
-
-        }
-
-
-        .invitation-content {
-
-            top: 34%;
-
-            left: 25%;
-
-            right: 5%;
-
-            bottom: 4%;
-        }
-
-
-        .save {
-            font-size:
-                clamp(
-                    38px,
-                    12vw,
-                    60px
-                );
-        }
-
-
-        .date-script {
-            font-size:
-                clamp(
-                    43px,
-                    14vw,
-                    70px
-                );
-
-            margin-bottom: 20px;
-        }
-
-
-        .couple {
-
-            font-size:
-                clamp(
-                    14px,
-                    4vw,
-                    20px
-                );
-
-            letter-spacing: 3px;
-
-            margin-bottom: 18px;
-        }
-
-
-        .day {
-
-            font-size:
-                clamp(
-                    31px,
-                    9vw,
-                    45px
-                );
-
-            padding-right: 10px;
-        }
-
-
-        .date-info {
-
-            font-size:
-                clamp(
-                    8px,
-                    2.5vw,
-                    12px
-                );
-
-            padding-left: 10px;
-
-            letter-spacing: 2px;
-        }
-
-
-        .venue {
-
-            font-size:
-                clamp(
-                    8px,
-                    2.3vw,
-                    11px
-                );
-
-            letter-spacing: 2px;
-        }
-
-
-        .the,
-        .rsvp {
-
-            letter-spacing: 3px;
-        }
-
-
-        .seal {
-
-            width: 58px;
-            height: 58px;
-
-            font-size: 22px;
-        }
-
-
-        .envelope-title {
-
-            font-size: 18px;
-
-            letter-spacing: 3px;
-        }
-
+        align-items:
+            flex-start;
     }
 
+}
 
-
-    /* Very short screens */
-
-    @media (max-height: 650px) {
-
-        #invitation-screen {
-            align-items: flex-start;
-        }
-
-    }
 
 </style>
+
 </head>
+
 
 
 <body>
 
 
-<!-- =================================
+<!-- ==========================================
      ENVELOPE
-================================= -->
+========================================== -->
 
 <section id="envelope-screen">
 
+
     <div class="envelope-title">
+
         YOU'RE INVITED
+
     </div>
+
 
 
     <div
@@ -879,45 +1283,71 @@
         aria-label="Open wedding invitation"
     >
 
+
         <div class="envelope">
+
 
             <div class="envelope-back"></div>
 
 
             <div class="letter-preview">
+
                 H &amp; T
+
             </div>
 
 
             <div class="envelope-left"></div>
 
+
             <div class="envelope-right"></div>
 
+
             <div class="envelope-bottom"></div>
+
 
             <div class="envelope-flap"></div>
 
 
+
+            <!-- WAX SEAL -->
+
             <div class="seal">
-                H <span class="seal-amp">&amp;</span> T
+
+                H
+
+                <span class="seal-amp">
+                    &amp;
+                </span>
+
+                T
+
             </div>
+
 
         </div>
 
+
     </div>
+
 
 
     <div class="click-text">
+
         Click to open
+
     </div>
+
 
 </section>
 
 
 
-<!-- =================================
+
+
+<!-- ==========================================
      WEDDING INVITATION
-================================= -->
+========================================== -->
 
 <section id="invitation-screen">
 
@@ -928,21 +1358,30 @@
         <div class="invitation-content">
 
 
+
             <!-- SAVE THE DATE -->
 
             <h1 class="save">
+
                 Save
+
             </h1>
 
 
             <div class="the">
+
                 THE
+
             </div>
 
 
             <div class="date-script">
+
                 Date
+
             </div>
+
+
 
 
 
@@ -956,30 +1395,43 @@
 
 
 
+
+
             <!-- DATE -->
 
             <div class="wedding-date">
 
 
                 <div class="day">
+
                     16
+
                 </div>
 
 
                 <div class="date-info">
 
-                    <div>
-                        FRIDAY
-                    </div>
 
                     <div>
-                        OCTOBER, 2026
+
+                        FRIDAY
+
                     </div>
+
+
+                    <div>
+
+                        OCTOBER, 2026
+
+                    </div>
+
 
                 </div>
 
 
             </div>
+
+
 
 
 
@@ -987,23 +1439,32 @@
 
             <div class="venue">
 
-                <div>
+
+                <div class="venue-name">
+
                     WEDDING VENUE
+
                 </div>
 
-                <div>
+
+                <div class="venue-location">
+
                     NARAIL, BANGLADESH
+
                 </div>
+
 
             </div>
 
 
 
-            <!-- RSVP -->
+
+
+            <!-- FINAL MESSAGE -->
 
             <div class="rsvp">
 
-                YOUR PRESENCE WILL MAKE OUR SPECIAL DAY EVEN MORE BEAUTIFUL.
+                Your presence will make our special day even more beautiful.
 
             </div>
 
@@ -1018,70 +1479,88 @@
 
 
 
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
 <script>
 
-    function openInvitation() {
 
-        const envelope =
-            document.getElementById("envelope");
-
-        const envelopeScreen =
-            document.getElementById("envelope-screen");
-
-        const invitationScreen =
-            document.getElementById("invitation-screen");
+function openInvitation() {
 
 
-        /*
-         * First open the envelope.
-         */
-
-        envelope.classList.add("open");
+    const envelope =
+        document.getElementById("envelope");
 
 
-        /*
-         * Wait for the envelope animation,
-         * then reveal the invitation.
-         */
-
-        setTimeout(() => {
-
-            envelopeScreen.classList.add("hide");
-
-            invitationScreen.classList.add("show");
-
-        }, 1100);
-
-    }
+    const envelopeScreen =
+        document.getElementById("envelope-screen");
 
 
-    /*
-     * Allow keyboard users to open
-     * the invitation with Enter/Space.
-     */
+    const invitationScreen =
+        document.getElementById("invitation-screen");
 
-    document
-        .getElementById("envelope")
-        .addEventListener(
-            "keydown",
-            function(event) {
 
-                if (
-                    event.key === "Enter" ||
-                    event.key === " "
-                ) {
 
-                    event.preventDefault();
+    /* Open envelope */
 
-                    openInvitation();
+    envelope.classList.add("open");
 
-                }
+
+
+    /* Reveal invitation */
+
+    setTimeout(() => {
+
+
+        envelopeScreen.classList.add("hide");
+
+
+        invitationScreen.classList.add("show");
+
+
+    }, 1100);
+
+
+}
+
+
+
+/* ==========================================
+   KEYBOARD ACCESSIBILITY
+========================================== */
+
+document
+    .getElementById("envelope")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+
+
+                event.preventDefault();
+
+
+                openInvitation();
+
 
             }
-        );
+
+
+        }
+    );
+
 
 </script>
 
 
 </body>
+
 </html>
