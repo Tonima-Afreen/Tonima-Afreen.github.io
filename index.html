@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
@@ -14,13 +13,10 @@
       content="Together with our families, we invite you to celebrate our special day.">
 
 
-<!-- ==========================================
-     SOCIAL SHARING
-========================================== -->
+<!-- SOCIAL SHARING -->
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="H & T Wedding">
-
 <meta property="og:url"
       content="https://tonima-afreen.github.io/">
 
@@ -36,20 +32,15 @@
 <meta property="og:image:secure_url"
       content="https://tonima-afreen.github.io/share-card-v2.jpg">
 
-<meta property="og:image:type"
-      content="image/jpeg">
-
-<meta property="og:image:width"
-      content="1200">
-
-<meta property="og:image:height"
-      content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <meta property="og:image:alt"
       content="H & T Wedding Invitation">
 
 
-<!-- Twitter / X -->
+<!-- TWITTER / X -->
 
 <meta name="twitter:card"
       content="summary_large_image">
@@ -64,9 +55,7 @@
       content="https://tonima-afreen.github.io/share-card-v2.jpg">
 
 
-<!-- ==========================================
-     FONTS
-========================================== -->
+<!-- FONTS -->
 
 <link rel="preconnect"
       href="https://fonts.googleapis.com">
@@ -75,14 +64,14 @@
       href="https://fonts.gstatic.com"
       crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@300;400;500&display=swap"
       rel="stylesheet">
 
 
 <style>
 
 /* ==========================================
-   BASIC
+   GLOBAL
 ========================================== */
 
 * {
@@ -95,7 +84,9 @@ body {
     padding: 0;
 
     width: 100%;
-    min-height: 100%;
+    height: 100%;
+
+    overflow: hidden;
 }
 
 body {
@@ -132,7 +123,9 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 25px;
+    padding: 20px;
+
+    overflow: hidden;
 
     background:
         radial-gradient(
@@ -165,17 +158,19 @@ body {
         serif;
 
     font-size:
-        clamp(20px, 3vw, 28px);
+        clamp(17px, 2.5vmin, 26px);
 
     font-weight: 500;
 
-    letter-spacing: 4px;
+    letter-spacing:
+        clamp(2px, .5vmin, 4px);
 
     text-align: center;
 
     color: #667487;
 
-    margin-bottom: 35px;
+    margin-bottom:
+        clamp(20px, 4vh, 35px);
 }
 
 
@@ -185,8 +180,17 @@ body {
 
 .envelope-wrapper {
 
+    /*
+       Envelope also respects BOTH
+       screen width and screen height.
+    */
+
     width:
-        min(500px, 88vw);
+        min(
+            500px,
+            88vw,
+            60vh
+        );
 
     aspect-ratio:
         1.55 / 1;
@@ -195,10 +199,12 @@ body {
 
     cursor: pointer;
 
+    flex-shrink: 0;
+
     filter:
         drop-shadow(
             0 20px 25px
-            rgba(62, 79, 100, .20)
+            rgba(62,79,100,.20)
         );
 
     transition:
@@ -209,7 +215,7 @@ body {
 .envelope-wrapper:hover {
 
     transform:
-        translateY(-5px);
+        translateY(-4px);
 }
 
 
@@ -240,9 +246,7 @@ body {
 }
 
 
-/* ==========================================
-   LETTER INSIDE ENVELOPE
-========================================== */
+/* LETTER */
 
 .letter-preview {
 
@@ -268,7 +272,7 @@ body {
         cursive;
 
     font-size:
-        clamp(35px, 7vw, 60px);
+        clamp(32px, 8vmin, 58px);
 
     color: #647487;
 
@@ -281,9 +285,7 @@ body {
 }
 
 
-/* ==========================================
-   ENVELOPE FOLDS
-========================================== */
+/* ENVELOPE FOLDS */
 
 .envelope-left {
 
@@ -447,14 +449,11 @@ body {
 
     font-weight: 400;
 
-    margin:
-        0 2px;
+    margin: 0 2px;
 }
 
 
-/* ==========================================
-   ENVELOPE ANIMATION
-========================================== */
+/* ENVELOPE OPEN */
 
 .envelope-wrapper.open
 .envelope-flap {
@@ -487,13 +486,16 @@ body {
 
 .click-text {
 
-    margin-top: 35px;
+    margin-top:
+        clamp(18px, 4vh, 35px);
 
-    font-size: 12px;
+    font-size:
+        clamp(8px, 1.4vmin, 12px);
 
     text-transform: uppercase;
 
-    letter-spacing: 4px;
+    letter-spacing:
+        clamp(2px, .5vmin, 4px);
 
     color: #788797;
 
@@ -521,36 +523,30 @@ body {
 
 #invitation-screen {
 
-    min-height: 100vh;
+    position: fixed;
+
+    inset: 0;
 
     width: 100%;
+    height: 100dvh;
 
     display: flex;
 
     justify-content: center;
+    align-items: center;
 
-    /*
-       IMPORTANT:
-       Do not vertically force the card into
-       the laptop screen. If necessary,
-       the page can scroll.
-    */
+    padding: 10px;
 
-    align-items: flex-start;
-
-    padding:
-        30px 20px;
+    overflow: hidden;
 
     opacity: 0;
 
     transform:
-        translateY(25px);
+        translateY(20px);
 
     transition:
         opacity 1s ease,
         transform 1s ease;
-
-    overflow-x: hidden;
 }
 
 
@@ -564,34 +560,87 @@ body {
 
 
 /* ==========================================
-   INVITATION CARD
+   RESPONSIVE CARD WRAPPER
+
+   Card ratio = 2:3.
+
+   Width is restricted by:
+   1. available screen width
+   2. available screen height
+
+   This is what prevents scrolling.
+========================================== */
+
+.invitation-wrapper {
+
+    /*
+       Maximum desktop width = 680px.
+
+       For short screens:
+       width = available height × 2/3.
+    */
+
+    --available-width:
+        calc(100vw - 20px);
+
+    --available-height:
+        calc(100dvh - 20px);
+
+    --fit-width:
+        calc(
+            var(--available-height)
+            * 2 / 3
+        );
+
+    --card-width:
+        min(
+            680px,
+            var(--available-width),
+            var(--fit-width)
+        );
+
+    width:
+        var(--card-width);
+
+    height:
+        calc(
+            var(--card-width)
+            * 3 / 2
+        );
+
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================================
+   INVITATION
+
+   Fixed design canvas = 680 × 1020.
+   Everything inside scales together.
 ========================================== */
 
 .invitation {
 
-    position: relative;
+    position: absolute;
 
-    /*
-       Laptop fix:
-       Width no longer depends on screen height.
-    */
+    top: 0;
+    left: 0;
 
-    width:
-        min(
-            680px,
-            calc(100vw - 40px)
+    width: 680px;
+    height: 1020px;
+
+    transform-origin:
+        top left;
+
+    transform:
+        scale(
+            calc(
+                var(--card-width)
+                / 680px
+            )
         );
-
-    aspect-ratio:
-        2 / 3;
-
-    flex-shrink: 0;
-
-
-    /*
-       wedding-bg.png must be in the
-       SAME folder as index.html
-    */
 
     background-image:
         url("./wedding-bg.png");
@@ -605,17 +654,16 @@ body {
     background-repeat:
         no-repeat;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
     box-shadow:
-        0 18px 60px
+        0 14px 45px
         rgba(61,77,95,.22);
 }
 
 
 /* ==========================================
-   INVITATION CONTENT
+   CONTENT
 ========================================== */
 
 .invitation-content {
@@ -625,7 +673,6 @@ body {
     top: 34%;
 
     left: 25%;
-
     right: 6%;
 
     bottom: 5%;
@@ -655,12 +702,7 @@ body {
         "Allura",
         cursive;
 
-    font-size:
-        clamp(
-            50px,
-            5.3vw,
-            78px
-        );
+    font-size: 78px;
 
     font-weight: 400;
 
@@ -678,12 +720,7 @@ body {
         "Cinzel",
         serif;
 
-    font-size:
-        clamp(
-            8px,
-            .9vw,
-            13px
-        );
+    font-size: 13px;
 
     font-weight: 500;
 
@@ -699,12 +736,9 @@ body {
         "Allura",
         cursive;
 
-    font-size:
-        clamp(
-            55px,
-            6vw,
-            88px
-        );
+    font-size: 88px;
+
+    font-weight: 400;
 
     line-height: .82;
 
@@ -715,7 +749,7 @@ body {
 
 
 /* ==========================================
-   COUPLE NAMES
+   COUPLE
 ========================================== */
 
 .couple {
@@ -724,12 +758,7 @@ body {
         "Cormorant Garamond",
         serif;
 
-    font-size:
-        clamp(
-            20px,
-            2.2vw,
-            29px
-        );
+    font-size: 29px;
 
     font-weight: 600;
 
@@ -746,7 +775,7 @@ body {
 
 
 /* ==========================================
-   WEDDING DATE
+   DATE
 ========================================== */
 
 .wedding-date {
@@ -766,12 +795,7 @@ body {
         "Cormorant Garamond",
         serif;
 
-    font-size:
-        clamp(
-            42px,
-            4vw,
-            58px
-        );
+    font-size: 58px;
 
     font-weight: 500;
 
@@ -797,12 +821,7 @@ body {
         "Cinzel",
         serif;
 
-    font-size:
-        clamp(
-            9px,
-            1vw,
-            14px
-        );
+    font-size: 14px;
 
     font-weight: 500;
 
@@ -838,12 +857,7 @@ body {
         "Cinzel",
         serif;
 
-    font-size:
-        clamp(
-            10px,
-            1.1vw,
-            15px
-        );
+    font-size: 15px;
 
     font-weight: 500;
 
@@ -869,20 +883,11 @@ body {
         "Cormorant Garamond",
         serif;
 
-    font-size:
-        clamp(
-            15px,
-            1.5vw,
-            20px
-        );
+    font-size: 20px;
 
-    /*
-       Same style/color as invitation,
-       but italic.
-    */
+    font-style: italic;
 
-
-    font-weight: 800;
+    font-weight: 600;
 
     line-height: 1.15;
 
@@ -897,7 +902,7 @@ body {
 
 
 /* ==========================================
-   RSVP / FINAL MESSAGE
+   RSVP
 ========================================== */
 
 .rsvp {
@@ -910,26 +915,11 @@ body {
         "Cormorant Garamond",
         serif;
 
-    /*
-       Smaller so it fits in ONE line.
-    */
-
-    font-size:
-        clamp(
-            9px,
-            .99vw,
-            11px
-        );
+    font-size: 11px;
 
     font-weight: 500;
 
     letter-spacing: .65px;
-
-
-    /*
-       Keep sentence case:
-       Your presence will...
-    */
 
     text-transform: none;
 
@@ -944,295 +934,86 @@ body {
 
 
 /* ==========================================
-   TABLET
+   MOBILE LANDSCAPE / VERY SHORT SCREENS
 ========================================== */
 
-@media (max-width: 800px) {
+@media (max-height: 500px) {
 
     #invitation-screen {
 
-        padding:
-            20px 12px;
+        padding: 5px;
     }
 
 
-    .invitation {
+    .invitation-wrapper {
 
-        width:
-            min(
-                620px,
-                calc(100vw - 24px)
-            );
-    }
+        --available-width:
+            calc(100vw - 10px);
 
-}
-
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width: 600px) {
-
-
-    #invitation-screen {
-
-        padding: 10px;
+        --available-height:
+            calc(100dvh - 10px);
     }
 
 
-    .invitation {
+    #envelope-screen {
 
-        width:
-            calc(100vw - 20px);
-
-        max-width:
-            500px;
-    }
-
-
-    .invitation-content {
-
-        top: 34%;
-
-        left: 24%;
-
-        right: 4%;
-
-        bottom: 5%;
-    }
-
-
-    .save {
-
-        font-size:
-            clamp(
-                38px,
-                12vw,
-                60px
-            );
-    }
-
-
-    .the {
-
-        font-size:
-            clamp(
-                7px,
-                2vw,
-                10px
-            );
-
-        letter-spacing:
-            3px;
-
-        margin-top:
-            9px;
-    }
-
-
-    .date-script {
-
-        font-size:
-            clamp(
-                43px,
-                14vw,
-                70px
-            );
-
-        margin-bottom:
-            18px;
-    }
-
-
-    .couple {
-
-        font-size:
-            clamp(
-                14px,
-                4vw,
-                20px
-            );
-
-        letter-spacing:
-            1.7px;
-
-        margin-bottom:
-            17px;
-    }
-
-
-    .day {
-
-        font-size:
-            clamp(
-                31px,
-                9vw,
-                45px
-            );
-
-        padding-right:
-            10px;
-    }
-
-
-    .date-info {
-
-        font-size:
-            clamp(
-                8px,
-                2.5vw,
-                12px
-            );
-
-        padding-left:
-            10px;
-
-        letter-spacing:
-            1.3px;
-    }
-
-
-    .wedding-date {
-
-        margin-bottom:
-            16px;
-    }
-
-
-    .venue-name {
-
-        font-size:
-            clamp(
-                8px,
-                2.5vw,
-                12px
-            );
-
-        letter-spacing:
-            1.2px;
-
-        margin-bottom:
-            2px;
-    }
-
-
-    .venue-location {
-
-        font-size:
-            clamp(
-                11px,
-                3.4vw,
-                16px
-            );
-
-
-        font-weight: 800;
-
-        letter-spacing:
-            .5px;
-    }
-
-
-    /*
-       Mobile RSVP
-    */
-
-    .rsvp {
-
-        margin-top: 8px;
-
-        font-size:
-            clamp(
-                6.5px,
-                1.5vw,
-                8px
-            );
-
-        letter-spacing:
-            .2px;
-
-        white-space:
-            nowrap;
-    }
-
-
-    /*
-       Envelope mobile
-    */
-
-    .seal {
-
-        width: 58px;
-
-        height: 58px;
-
-        font-size: 20px;
-    }
-
-
-    .seal-amp {
-
-        font-size: 17px;
+        padding: 8px;
     }
 
 
     .envelope-title {
 
-        font-size: 18px;
+        margin-bottom: 10px;
+    }
 
-        letter-spacing: 3px;
+
+    .click-text {
+
+        margin-top: 10px;
     }
 
 }
 
 
 /* ==========================================
-   VERY SMALL MOBILE
+   MOBILE ENVELOPE
 ========================================== */
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
 
+    .envelope-wrapper {
 
-    .invitation-content {
-
-        left: 23%;
-
-        right: 3%;
+        width:
+            min(
+                90vw,
+                58vh
+            );
     }
 
 
-    .couple {
+    .seal {
 
-        letter-spacing:
-            1.2px;
-    }
+        /*
+           Scaling only the envelope UI.
+           Invitation typography remains
+           completely unchanged.
+        */
 
+        width:
+            clamp(52px, 15vw, 68px);
 
-    .venue-name {
+        height:
+            clamp(52px, 15vw, 68px);
 
         font-size:
-            8px;
+            clamp(17px, 5vw, 22px);
     }
 
 
-    .venue-location {
+    .seal-amp {
 
         font-size:
-            11px;
-
-        letter-spacing:
-            .2px;
-    }
-
-
-    .rsvp {
-
-        font-size:
-            4.2px;
-
-        letter-spacing:
-            0;
+            clamp(14px, 4vw, 18px);
     }
 
 }
@@ -1246,7 +1027,7 @@ body {
 
 
 <!-- ==========================================
-     ENVELOPE SCREEN
+     ENVELOPE
 ========================================== -->
 
 <section id="envelope-screen">
@@ -1291,8 +1072,6 @@ body {
             <div class="envelope-flap"></div>
 
 
-            <!-- WAX SEAL -->
-
             <div class="seal">
 
                 H
@@ -1324,114 +1103,117 @@ body {
 
 
 <!-- ==========================================
-     WEDDING INVITATION
+     INVITATION
 ========================================== -->
 
 <section id="invitation-screen">
 
 
-    <main class="invitation">
+    <div class="invitation-wrapper">
 
 
-        <div class="invitation-content">
+        <main class="invitation">
 
 
-            <!-- SAVE THE DATE -->
-
-            <h1 class="save">
-                Save
-            </h1>
+            <div class="invitation-content">
 
 
-            <div class="the">
-                THE
-            </div>
+                <h1 class="save">
+                    Save
+                </h1>
 
 
-            <div class="date-script">
-                Date
-            </div>
-
-
-
-            <!-- COUPLE -->
-
-            <div class="couple">
-                HASAN &amp; TONIMA
-            </div>
-
-
-
-            <!-- DATE -->
-
-            <div class="wedding-date">
-
-
-                <div class="day">
-                    16
+                <div class="the">
+                    THE
                 </div>
 
 
-                <div class="date-info">
+                <div class="date-script">
+                    Date
+                </div>
 
-                    <div>
-                        FRIDAY
+
+                <div class="couple">
+
+                    HASAN &amp; TONIMA
+
+                </div>
+
+
+                <div class="wedding-date">
+
+
+                    <div class="day">
+
+                        16
+
                     </div>
 
-                    <div>
-                        OCTOBER, 2026
+
+                    <div class="date-info">
+
+
+                        <div>
+                            FRIDAY
+                        </div>
+
+
+                        <div>
+                            OCTOBER, 2026
+                        </div>
+
+
                     </div>
 
+
+                </div>
+
+
+                <div class="venue">
+
+
+                    <div class="venue-name">
+
+                        WEDDING VENUE
+
+                    </div>
+
+
+                    <div class="venue-location">
+
+                        NARAIL, BANGLADESH
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="rsvp">
+
+                    Your presence will make our special day even more beautiful.
+
                 </div>
 
 
             </div>
 
 
-
-            <!-- VENUE -->
-
-            <div class="venue">
+        </main>
 
 
-                <div class="venue-name">
-                    WEDDING VENUE
-                </div>
-
-
-                <div class="venue-location">
-                    NARAIL, BANGLADESH
-                </div>
-
-
-            </div>
-
-
-
-            <!-- FINAL MESSAGE -->
-
-            <div class="rsvp">
-
-                Your presence will make our special day even more beautiful.
-
-            </div>
-
-
-        </div>
-
-
-    </main>
+    </div>
 
 
 </section>
 
 
 
-<!-- ==========================================
-     JAVASCRIPT
-========================================== -->
-
 <script>
+
+/* ==========================================
+   OPEN INVITATION
+========================================== */
 
 function openInvitation() {
 
@@ -1448,16 +1230,8 @@ function openInvitation() {
         document.getElementById("invitation-screen");
 
 
-    /*
-       Start envelope animation
-    */
-
     envelope.classList.add("open");
 
-
-    /*
-       Show invitation after animation
-    */
 
     setTimeout(() => {
 
